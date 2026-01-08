@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oRENTacja - Wypożyczalnia Samochodów</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="js/app.js" defer></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="oRENTacja Logo" class="logo-icon">
+                <span>o<span class="highlight">RENT</span>acja</span>
+            </a>
+            <button class="menu-toggle" aria-label="Toggle Navigation">
+                <span class="hamburger"></span>
+            </button>
+            <nav class="main-nav">
+                <!-- Close button handled by hamburger -->
+                <ul class="nav-list">
+                    <li><a href="index.html#catalog">Katalog</a></li>
+                    <li><a href="about.html">O nas</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                    <li class="mobile-only"><a href="login.html">Zaloguj się</a></li>
+                </ul>
+            </nav>
+                <div class="user-actions">
+                    <!-- Will be populated by JS based on Auth state -->
+                    <a href="login.html" id="loginLink" class="btn btn-secondary">Zaloguj się</a>
+                    <div id="userInfo" class="user-info hidden">
+                    <span id="userName">Klient</span>
+                    <button id="dashboardBtn" class="btn btn-small">Mój Profil</button>
+                    <button id="logoutBtn" class="btn btn-text">Wyloguj</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>Rental<br>Kraków</h1>
+                    <p>Wypożycz samochód w Krakowie już od 199 PLN. Rezerwuj online na dni, tygodnie lub miesiące.</p>
+                </div>
+                <div class="hero-image-container">
+                    <!-- Using hero_car.webp as requested. If missing, I will fix. -->
+                    <img src="assets/hero_car.webp" alt="Samochód w Krakowie" class="hero-car-img" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80'">
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters Section -->
+        <section id="catalog" class="catalog-section">
+            <div class="container">
+                <div class="catalog-header">
+                        <h2>Nasza Flota</h2>
+                        <p class="section-description">Niezależnie od tego, czy potrzebujesz pojazdu na romantyczną podróż we dwoje, rodzinny wypad, czy służbową podróż, nasza flota jest gotowa sprostać Twoim oczekiwaniom. Wybierając nas, wybierasz nie tylko samochód, ale również doświadczenie, które pozostawi niezapomniane wrażenia.</p>
+                    <div class="search-bar">
+                        <input type="text" id="searchInput" placeholder="Szukaj samochodu (np. Audi)...">
+                    </div>
+                </div>
+                
+                <div class="catalog-layout">
+                    <aside class="filters-sidebar">
+                        <h3>Filtry</h3>
+                        <div class="filter-group">
+                            <label>Typ Pojazdu</label>
+                            <select id="typeFilter">
+                                <option value="all">Wszystkie</option>
+                                <option value="sedan">Sedan</option>
+                                <option value="suv">SUV</option>
+                                <option value="hatchback">Hatchback</option>
+                                <option value="sport">Sportowe</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Cena (za dzień)</label>
+                            <input type="range" id="priceFilter" min="100" max="2000" step="50">
+                            <span id="priceValue">Do 2000 PLN</span>
+                        </div>
+                         <div class="filter-group">
+                            <label>Skrzynia biegów</label>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="transmission" value="automatic" checked> Automat</label>
+                                <label><input type="checkbox" name="transmission" value="manual" checked> Manual</label>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <div id="carList" class="car-grid">
+                        <!-- Car Cards will be injected here by JS -->
+                        <p class="loading-msg">Ładowanie oferty...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <p>&copy; 2024 oRENTacja. Wszystkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <!-- Login Modal Removed -->
+
+</body>
+</html>

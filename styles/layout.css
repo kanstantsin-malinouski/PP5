@@ -1,0 +1,409 @@
+/* Header */
+.main-header {
+    background-color: var(--white);
+    box-shadow: var(--shadow-sm);
+    padding: var(--spacing-sm) 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    /* 'o' and 'acja' will inherit this */
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.logo-icon {
+    height: 60px;
+    width: auto;
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.logo .highlight {
+    color: var(--accent-color);
+    /* RENT in Orange/Accent */
+}
+
+.nav-list {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.close-menu-btn {
+    display: none;
+    /* Hidden on desktop */
+}
+
+.nav-list a {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.nav-list a:hover {
+    color: var(--primary-color);
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.user-actions .btn {
+    font-size: 1rem;
+    padding: 0.6rem 1.25rem;
+}
+
+/* Mobile Menu Toggle */
+/* Mobile Menu Toggle */
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    /* Center content vertically */
+    align-items: center;
+    /* Center content horizontally */
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 200;
+    padding: 0;
+    align-self: center;
+    /* Center button relative to header */
+}
+
+.hamburger {
+    width: 24px;
+    height: 2px;
+    background: var(--primary-color);
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: var(--primary-color);
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+    left: 0;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    top: 8px;
+}
+
+/* Active State for Hamburger (Transform to X) */
+.menu-toggle.active .hamburger {
+    background: transparent;
+}
+
+.menu-toggle.active .hamburger::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.menu-toggle.active .hamburger::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+/* Utility for Mobile items - FORCE HIDDEN on Desktop */
+.mobile-only {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+
+    /* Logo Resize */
+    .logo {
+        font-size: 1.8rem;
+    }
+
+    .logo-icon {
+        height: 40px;
+    }
+
+    .mobile-only {
+        display: block !important;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .main-nav {
+        position: absolute;
+        top: 100%;
+        /* Below header */
+        left: 0;
+        width: 100%;
+        height: auto;
+        background: #f8f9fa;
+        /* Light grey background like reference */
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        padding: 0;
+
+        /* Animation: Slide Down */
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, padding 0.4s;
+
+        border-top: 1px solid var(--border-color);
+        display: block;
+        /* Override flex */
+    }
+
+    .main-nav.active {
+        max-height: 500px;
+        /* Large enough to fit content */
+        opacity: 1;
+        padding: var(--spacing-lg) 0;
+    }
+
+    /* Hide the close button as hamburger handles it */
+    .close-menu-btn {
+        display: none !important;
+    }
+
+    .main-nav.active {
+        right: 0;
+        /* Slide in */
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+        align-items: center;
+        width: 100%;
+    }
+
+    .user-actions {
+        display: none !important;
+        /* Hidden on mobile as requested */
+    }
+}
+
+/* Removed .user-actions styles from here as they were moved up */
+
+/* User Info Panel */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 0.9rem;
+}
+
+#userName {
+    font-weight: 600;
+}
+
+/* Hero Section */
+.hero-section {
+    background-color: #D35400;
+    /* Terracotta Orange */
+    color: var(--white);
+    padding: var(--spacing-lg) 0;
+    /* Reduced from xl to lg */
+    text-align: left;
+    /* Changed from center */
+    /* Removed background-image */
+    overflow: hidden;
+    /* For the car image */
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
+    min-height: 400px;
+    /* Enforce a reasonable minimum height */
+}
+
+.hero-text {
+    flex: 1;
+    z-index: 10;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    font-style: italic;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: var(--spacing-sm);
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+    opacity: 1;
+    font-weight: 500;
+}
+
+.hero-image-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-car-img {
+    max-width: 120%;
+    /* Make it pop out a bit */
+    height: auto;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.3));
+    transform: rotate(-2deg);
+    /* Dynamic angle */
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-md);
+        min-height: auto;
+        /* Allow auto height on mobile */
+    }
+
+    .hero-section {
+        background-color: #D35400;
+        /* Ensure solid color persists */
+        background-image: none;
+        /* Explicitly remove any background image */
+        padding: var(--spacing-lg) 0;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+        /* Smaller font for mobile */
+    }
+
+    .hero-car-img {
+        max-width: 100%;
+        margin-top: var(--spacing-sm);
+        transform: rotate(0deg);
+        /* Simplify transform for mobile */
+    }
+}
+
+/* Catalog Layout */
+.catalog-section {
+    padding: var(--spacing-xl) 0;
+}
+
+.catalog-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    gap: var(--spacing-sm);
+    /* Removed position: relative */
+}
+
+/* Removed catalog-header-content styles as the div was removed */
+
+.section-description {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.search-bar {
+    width: 300px;
+    align-self: flex-end;
+    /* Pushes to the right */
+    margin-top: var(--spacing-sm);
+}
+
+@media (max-width: 900px) {
+    .search-bar {
+        width: 100%;
+        align-self: center;
+        /* Center on mobile */
+    }
+}
+
+.catalog-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .catalog-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Sidebar */
+.filters-sidebar {
+    background: var(--white);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    height: fit-content;
+}
+
+.filter-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+}
+
+/* Car Grid */
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+/* Footer */
+.main-footer {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+    margin-top: var(--spacing-xl);
+}

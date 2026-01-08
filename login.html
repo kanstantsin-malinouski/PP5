@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaloguj się - oRENTacja</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="js/auth.js" defer></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="oRENTacja Logo" class="logo-icon">
+                <span>o<span class="highlight">RENT</span>acja</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="container" style="max-width: 500px; margin-top: 4rem; margin-bottom: 4rem;">
+        <div class="login-container" style="background: var(--white); padding: 2rem; border-radius: 8px; box-shadow: var(--shadow-md);">
+            <h2>Witaj ponownie</h2>
+            <p style="margin-bottom: 2rem; color: var(--text-light);">Zaloguj się, aby zarządzać rezerwacjami.</p>
+            
+            <form id="loginPageForm">
+                <div class="form-group">
+                    <label for="username">Użytkownik</label>
+                    <select id="username" class="full-width">
+                        <option value="client">Klient (Jan Kowalski)</option>
+                        <option value="admin">Administrator (Admin)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary full-width">Zaloguj się</button>
+            </form>
+            <p style="margin-top: 1rem; text-align: center; font-size: 0.9rem;">
+                <a href="index.html" style="color: var(--primary-color);">Powrót do strony głównej</a>
+            </p>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <p>&copy; 2024 oRENTacja. Wszystkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+</body>
+</html>

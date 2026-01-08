@@ -1,0 +1,258 @@
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--bg-color);
+    border-color: var(--text-light);
+}
+
+.btn-large {
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+}
+
+.btn-small {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.85rem;
+}
+
+.btn-text {
+    padding: 0;
+    color: var(--text-light);
+}
+
+.btn-text:hover {
+    color: var(--danger-color);
+    text-decoration: underline;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* Form Elements */
+input[type="text"],
+input[type="search"],
+select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+}
+
+input[type="range"] {
+    width: 100%;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.checkbox-group label {
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background: var(--white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+}
+
+.close-modal {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-light);
+}
+
+.close-modal:hover {
+    color: var(--text-color);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+/* Car Card New Styles */
+.car-card {
+    background: #f2f2f2;
+    /* Light grey per request */
+    /* Very light gray/white */
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    /* Light dark border */
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.car-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.car-image {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    background-color: #f0f0f0;
+}
+
+.car-info {
+    padding: var(--spacing-lg);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center everything column-wise */
+}
+
+.car-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-sm);
+    color: #333;
+}
+
+.car-price-block {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.price-main {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    /* Increased to 22px */
+    font-weight: 700;
+    /* Reverted to 700 */
+    color: #1ba300;
+    /* Distinct Green */
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
+}
+
+.price-sub {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.car-specs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md) var(--spacing-sm);
+    width: 100%;
+    margin-bottom: var(--spacing-lg);
+    background: #f7f7f7;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+}
+
+.spec-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #555;
+    justify-content: flex-start;
+    /* Left align content in cell */
+}
+
+.icon-wrap {
+    color: #777;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+.spec-icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: invert(0.8);
+    /* Invert light grey to make it dark grey */
+}
+
+.car-footer-action {
+    width: 60%;
+    /* Not full width button, maybe 60-80% */
+    margin-top: auto;
+}
+
+.btn-pill {
+    border-radius: 50px;
+    background-color: #e6a33a;
+    /* Muted orange/gold */
+    font-weight: 700;
+    text-transform: none;
+    font-size: 1.1rem;
+    padding: 0.75rem 1rem;
+}
+
+.btn-pill:hover {
+    background-color: #d4922e;
+}
+
+.text-center {
+    text-align: center;
+}
