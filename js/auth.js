@@ -13,10 +13,16 @@ export function checkAuth() {
         loginLink.classList.add('hidden');
         userInfo.classList.remove('hidden');
 
-        if (userRole === 'admin') {
-            userNameDisplay.textContent = 'Administrator';
+        const userName = localStorage.getItem('userName');
+        if (userName) {
+            userNameDisplay.textContent = userName;
         } else {
-            userNameDisplay.textContent = 'Jan Kowalski';
+            userNameDisplay.textContent = userRole === 'admin' ? 'Administrator' : 'Jan Kowalski';
+        }
+
+        const dashboardBtn = document.getElementById('dashboardBtn');
+        if (dashboardBtn) {
+            dashboardBtn.onclick = () => window.location.href = 'profile.html';
         }
     } else {
         loginLink.classList.remove('hidden');
@@ -24,10 +30,28 @@ export function checkAuth() {
     }
 }
 
-export function login(role) {
-    localStorage.setItem('userRole', role);
-    // Redirect to index
-    window.location.href = 'index.html';
+export function login(email, password) {
+    const adminEmail = 'admin@example.com';
+    const adminPass = 'admin123';
+    const userEmail = 'jan@example.com';
+    const userPass = 'jan123';
+
+    let role = null;
+
+    if (email === adminEmail && password === adminPass) {
+        role = 'admin';
+    } else if (email === userEmail && password === userPass) {
+        role = 'user';
+    }
+
+    if (role) {
+        localStorage.setItem('userRole', role);
+        localStorage.setItem('userName', role === 'admin' ? 'Administrator' : 'Jan Kowalski');
+        window.location.href = 'index.html';
+        return true;
+    } else {
+        return false;
+    }
 }
 
 export function logout() {
@@ -38,11 +62,21 @@ export function logout() {
 // Initialize Login Page Logic
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginPageForm');
+    const errorMsg = document.getElementById('loginError');
+
     if (loginForm) {
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const role = document.getElementById('username').value;
-            login(role);
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (errorMsg) errorMsg.classList.add('hidden');
+
+            const success = login(email, password);
+
+            if (!success && errorMsg) {
+                errorMsg.classList.remove('hidden');
+            }
         });
     }
 

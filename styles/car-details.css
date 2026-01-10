@@ -1,0 +1,304 @@
+/* Car Details Page Styles */
+.car-details-page {
+    background-color: #0c0c0c;
+    color: #ffffff;
+}
+
+/* Hero Section */
+.details-hero {
+    position: relative;
+    height: 90vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+
+.details-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.1) 100%),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, transparent 20%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+}
+
+.details-hero .container {
+    position: relative;
+    z-index: 2;
+    padding-top: 80px;
+}
+
+.hero-info {
+    max-width: 600px;
+}
+
+.hero-label {
+    display: inline-block;
+    color: var(--primary-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 800;
+    line-height: 0.9;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
+}
+
+.hero-specs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.hero-spec-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.hero-spec-item img {
+    width: 24px;
+    height: 24px;
+    filter: invert(1) brightness(2);
+}
+
+.hero-price {
+    margin-top: auto;
+}
+
+.price-tag {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.price-tag .amount {
+    font-size: 3rem;
+    color: var(--primary-color);
+}
+
+/* Section Transitions */
+.details-section {
+    padding: 100px 0;
+}
+
+.section-dark {
+    background-color: #111111;
+}
+
+/* Specs Grid */
+.specs-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.spec-detail-card {
+    background: #1a1a1a;
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.spec-detail-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.spec-detail-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 1rem;
+    filter: invert(1) brightness(1.5);
+}
+
+.spec-detail-label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.spec-detail-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+/* Pricing Table */
+.pricing-container {
+    background: #1a1a1a;
+    border-radius: 30px;
+    overflow: hidden;
+    margin-top: 3rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pricing-table th {
+    background: var(--primary-color);
+    color: white;
+    padding: 1.5rem;
+    text-align: left;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.pricing-table td {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pricing-table tr:last-child td {
+    border-bottom: none;
+}
+
+.price-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.price-subtext {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+    display: block;
+}
+
+/* Description */
+.description-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 800px;
+}
+
+/* Booking Sidebar / Bottom Section */
+.booking-section {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    padding: 80px 0;
+    border-radius: 50px 50px 0 0;
+}
+
+.booking-grid {
+    display: grid;
+    grid-template-columns: 1fr 450px;
+    gap: 4rem;
+}
+
+.booking-form-card {
+    background: white;
+    padding: 3rem;
+    border-radius: 30px;
+    color: var(--secondary-color);
+}
+
+.booking-form-card h3 {
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+    font-weight: 800;
+    text-align: center;
+    color: #0f172a;
+}
+
+.booking-form-card .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.booking-form-card label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+.booking-form-card input,
+.booking-form-card textarea {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.booking-form-card input:focus,
+.booking-form-card textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+    transform: translateY(-2px);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 576px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 992px) {
+    .booking-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.hero-cta {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.hero-cta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .details-hero {
+        height: auto;
+        padding-bottom: 100px;
+    }
+}

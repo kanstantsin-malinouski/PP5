@@ -3,49 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zaloguj się - oRENTacja</title>
-    <link rel="icon" type="image/png" href="assets/logo.png">
+    <title>Szczegóły auta - oRENTacja</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/car-details.css">
     <link rel="stylesheet" href="styles/footer.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script type="module" src="js/auth.js" defer></script>
+    <script type="module" src="js/car-details.js" defer></script>
 </head>
-<body>
-    <header class="main-header">
+<body class="car-details-page">
+    <header class="main-header" style="position: absolute; width: 100%; z-index: 100; background: transparent; border: none;">
         <div class="container header-content">
             <a href="index.html" class="logo">
                 <img src="assets/logo.png" alt="oRENTacja Logo" class="logo-icon">
-                <span>o<span class="highlight">RENT</span>acja</span>
+                <span style="color: white;">o<span class="highlight">RENT</span>acja</span>
             </a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html#catalog" style="color: white;">Katalog</a></li>
+                    <li><a href="about.html" style="color: white;">O nas</a></li>
+                    <li><a href="contact.html" style="color: white;">Kontakt</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <a href="login.html" id="loginLink" class="btn btn-secondary btn-small">Zaloguj się</a>
+                <div id="userInfo" class="user-info hidden">
+                    <span id="userName" style="color: white;"></span>
+                    <button id="dashboardBtn" class="btn btn-small">Mój Profil</button>
+                    <button id="logoutBtn" class="btn btn-text" style="color: white;">Wyloguj</button>
+                </div>
+            </div>
         </div>
     </header>
 
-    <main class="login-wrapper">
-        <div class="login-container">
-            <div class="login-header">
-                <h2>Witaj ponownie</h2>
-                <p>Zaloguj się, aby zarządzać rezerwacjami.</p>
-            </div>
-            
-            <form id="loginPageForm">
-                <div id="loginError" class="error-msg hidden">
-                    Błędny e-mail lub hasło.
-                </div>
-                <div class="form-group">
-                    <label for="email">E-mail</label>
-                    <input type="email" id="email" required placeholder="np. jan@example.com">
-                </div>
-                <div class="form-group">
-                    <label for="password">Hasło</label>
-                    <input type="password" id="password" required placeholder="••••••••">
-                </div>
-                <button type="submit" class="btn btn-primary full-width">Zaloguj się</button>
-            </form>
-            <div class="login-footer">
-                <p><a href="index.html">Powrót do strony głównej</a></p>
-            </div>
+    <main id="carDetailsContent">
+        <!-- Content will be injected by car-details.js -->
+        <div class="loading-state" style="padding-top: 200px; text-align: center;">
+            <div class="loader"></div>
+            <p>Ładowanie szczegółów auta...</p>
         </div>
     </main>
 

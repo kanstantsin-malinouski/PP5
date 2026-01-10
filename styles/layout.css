@@ -482,6 +482,113 @@ input[type="range"]::-webkit-slider-thumb:hover {
     appearance: none;
 }
 
+/* Info Content Section (Dedicars Style) */
+.info-content-section {
+    padding: var(--spacing-xl) 0;
+}
+
+.dark-bg {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.dark-bg h2 {
+    color: #ffffff;
+    margin-bottom: var(--spacing-lg);
+    font-size: 2.2rem;
+}
+
+.dark-bg h3 {
+    color: #ffffff;
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.5rem;
+}
+
+.dark-bg p {
+    color: #cccccc;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+    margin-bottom: var(--spacing-xl);
+}
+
+.info-item-block {
+    margin-bottom: var(--spacing-xl);
+}
+
+.info-item-block:last-child p {
+    margin-bottom: 0;
+}
+
+/* FAQ Section */
+.faq-section {
+    background-color: #f9f9f9;
+    padding: var(--spacing-xl) 0;
+}
+
+.faq-accordion {
+    max-width: 800px;
+    margin: var(--spacing-xl) auto 0;
+}
+
+.faq-item {
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.faq-question {
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--secondary-color);
+    transition: background 0.3s;
+}
+
+.faq-question:hover {
+    background: #f0f0f0;
+}
+
+.faq-icon {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    transition: transform 0.3s;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    background: #fff;
+}
+
+.faq-answer p {
+    padding: 0 var(--spacing-lg) var(--spacing-lg);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    /* arbitrary large value */
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
 .checkmark {
     position: absolute;
     top: 0;

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mój Profil - oRENTacja</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/profile.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="js/auth.js" defer></script>
+    <script type="module" src="js/profile.js" defer></script>
+</head>
+<body class="profile-page">
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="oRENTacja Logo" class="logo-icon">
+                <span>o<span class="highlight">RENT</span>acja</span>
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html#catalog">Katalog</a></li>
+                    <li><a href="about.html">O nas</a></li>
+                    <li><a href="contact.html">Kontakt</a></li>
+                </ul>
+            </nav>
+            <div id="userInfo" class="user-actions hidden">
+                <span id="userName"></span>
+                <a href="profile.html" class="btn btn-secondary btn-small">Mój profil</a>
+                <button id="logoutBtn" class="btn btn-outline btn-small">Wyloguj</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container profile-main">
+        <aside class="profile-sidebar">
+            <div class="user-peek">
+                <div class="user-avatar" id="profileAvatar"></div>
+                <h3 id="sidebarUserName">Ładowanie...</h3>
+                <p id="sidebarUserRole"></p>
+            </div>
+            <nav class="profile-nav">
+                <button class="nav-item active" data-tab="info">Moje Dane</button>
+                <button class="nav-item" data-tab="reservations">Rezerwacje</button>
+                <button class="nav-item" data-tab="payments" id="navPayment">Metody Płatności</button>
+                <button class="nav-item admin-only" data-tab="all-users">Użytkownicy</button>
+                <button class="nav-item admin-only" data-tab="manage-cars">Zarządzaj Flotą</button>
+                <div class="sidebar-divider"></div>
+                <button id="sidebarLogoutBtn" class="nav-item text-danger">Wyloguj się</button>
+            </nav>
+        </aside>
+
+        <section class="profile-content">
+            <!-- Moje Dane -->
+            <div class="tab-pane active" id="tab-info">
+                <h2>Moje Dane</h2>
+                <form id="profileForm" class="standard-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="profName">Imię i Nazwisko</label>
+                            <input type="text" id="profName" placeholder="Jan Kowalski">
+                        </div>
+                        <div class="form-group">
+                            <label for="profEmail">E-mail</label>
+                            <input type="email" id="profEmail" placeholder="jan@example.com" disabled>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="profPhone">Numer telefonu</label>
+                            <input type="tel" id="profPhone" placeholder="+48 123 456 789">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
+                </form>
+            </div>
+
+            <!-- Rezerwacje -->
+            <div class="tab-pane" id="tab-reservations">
+                <div class="section-header">
+                    <h2 id="resTitle">Moje Rezerwacje</h2>
+                    <button class="btn btn-primary admin-only" id="addNewRes">Nowa Rezerwacja</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Samochód</th>
+                                <th class="admin-only">Użytkownik</th>
+                                <th>Data</th>
+                                <th>Status</th>
+                                <th>Akcje</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reservationsTableBody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Metody Płatności (User only) -->
+            <div class="tab-pane" id="tab-payments">
+                <h2>Metody Płatności</h2>
+                <div class="payment-grid" id="paymentGrid">
+                    <!-- Cards here -->
+                </div>
+                <button class="btn btn-secondary" id="addPaymentBtn">+ Dodaj kartę</button>
+            </div>
+
+            <!-- Użytkownicy (Admin only) -->
+            <div class="tab-pane" id="tab-all-users">
+                <h2>Wszyscy Użytkownicy</h2>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Imię</th>
+                                <th>E-mail</th>
+                                <th>Rola</th>
+                                <th>Akcje</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Zarządzaj Flotą (Admin only) -->
+            <div class="tab-pane" id="tab-manage-cars">
+                <div class="section-header">
+                    <h2>Zarządzaj Flotą</h2>
+                    <button class="btn btn-primary" id="addNewCar">Dodaj Samochód</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Marka i Model</th>
+                                <th>Cena/Doba</th>
+                                <th>Status</th>
+                                <th>Akcje</th>
+                            </tr>
+                        </thead>
+                        <tbody id="carsTableBody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="premium-footer">
+        <div class="footer-container">
+            <div class="footer-main-grid">
+                <!-- Brand & Social -->
+                <div class="footer-col footer-brand">
+                    <a href="index.html" class="logo">
+                        <span>o<span class="highlight">RENT</span>acja</span>
+                    </a>
+                    <p>Twoja brama do świata luksusu i niezapomnianych wrażeń za kierownicą. Oferujemy starannie wyselekcjonowaną flotę aut premium w sercu Krakowa.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4h5a4 4 0 0 1-4 4"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-col">
+                    <h4>Kontakt</h4>
+                    <div class="footer-contact-item">
+                        <div class="contact-icon-wrap">📞</div>
+                        <div class="contact-text-wrap">
+                            <span class="contact-label">Zadzwoń do nas</span>
+                            <span class="contact-value">+48 123 456 789</span>
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="contact-icon-wrap">📧</div>
+                        <div class="contact-text-wrap">
+                            <span class="contact-label">Napisz e-mail</span>
+                            <span class="contact-value">kontakt@orentacja.pl</span>
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="contact-icon-wrap">📍</div>
+                        <div class="contact-text-wrap">
+                            <span class="contact-label">Odwiedź nas</span>
+                            <span class="contact-value">ul. Rakowicka 27, Kraków</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categories -->
+                <div class="footer-col">
+                    <h4>Flota</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="index.html#catalog">Sportowe</a></li>
+                        <li><a href="index.html#catalog">SUV</a></li>
+                        <li><a href="index.html#catalog">Luksusowe</a></li>
+                        <li><a href="index.html#catalog">Wszystkie auta</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-col">
+                    <h4>Na skróty</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="about.html">O nas</a></li>
+                        <li><a href="contact.html">Kontakt</a></li>
+                        <li><a href="index.html#faq">FAQ</a></li>
+                        <li><a href="#">Polityka Prywatności</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom-bar">
+                <div class="copyright">
+                    © 2026 oRENTacja. Wszystkie prawa zastrzeżone.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#">Regulamin</a>
+                    <a href="#">Polityka prywatności</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple Modal for Edits -->
+    <div id="editModal" class="modal hidden">
+        <div class="modal-content">
+            <h3 id="modalTitle">Edycja</h3>
+            <div id="modalBody"></div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="closeModal">Anuluj</button>
+                <button class="btn btn-primary" id="saveModal">Zapisz</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

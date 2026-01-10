@@ -61,7 +61,7 @@ class CarCard extends HTMLElement {
                     </div>
 
                     <div class="car-footer-action">
-                        <button class="btn btn-primary btn-pill full-width rent-btn" ${!available ? 'disabled' : ''} data-id="${this._car.id}">
+                        <button class="btn btn-primary btn-pill full-width details-btn" ${!available ? 'disabled' : ''} onclick="window.location.href='car-details.html?id=${this._car.id}'">
                             ${available ? 'Szczegóły' : 'Zajęty'}
                         </button>
                     </div>
