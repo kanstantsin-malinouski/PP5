@@ -69,27 +69,40 @@
                 
                 <div class="catalog-layout">
                     <aside class="filters-sidebar">
-                        <h3>Filtry</h3>
+                        <div class="sidebar-header">
+                            <h3>Filtry</h3>
+                            <button id="resetFilters" class="btn-text">Resetuj</button>
+                        </div>
                         <div class="filter-group">
-                            <label>Typ Pojazdu</label>
+                            <label for="typeFilter">Typ Pojazdu</label>
                             <select id="typeFilter">
                                 <option value="all">Wszystkie</option>
                                 <option value="sedan">Sedan</option>
                                 <option value="suv">SUV</option>
                                 <option value="hatchback">Hatchback</option>
-                                <option value="sport">Sportowe</option>
+                                <option value="sport">Sport</option>
                             </select>
                         </div>
                         <div class="filter-group">
-                            <label>Cena (za dzień)</label>
-                            <input type="range" id="priceFilter" min="100" max="2000" step="50">
-                            <span id="priceValue">Do 2000 PLN</span>
+                            <div class="filter-label-row">
+                                <label for="priceFilter">Cena (brutto/doba)</label>
+                                <span id="priceValue" class="filter-value">Do 2800 PLN</span>
+                            </div>
+                            <input type="range" id="priceFilter" min="100" max="2800" step="100" value="2800">
                         </div>
                          <div class="filter-group">
                             <label>Skrzynia biegów</label>
                             <div class="checkbox-group">
-                                <label><input type="checkbox" name="transmission" value="automatic" checked> Automat</label>
-                                <label><input type="checkbox" name="transmission" value="manual" checked> Manual</label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="transmission" value="Automat" checked>
+                                    <span class="checkmark"></span>
+                                    Automat
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="transmission" value="Manual" checked>
+                                    <span class="checkmark"></span>
+                                    Manual
+                                </label>
                             </div>
                         </div>
                     </aside>
@@ -105,7 +118,7 @@
 
     <footer class="main-footer">
         <div class="container footer-content">
-            <p>&copy; 2024 oRENTacja. Wszystkie prawa zastrzeżone.</p>
+            <p>&copy; 2026 oRENTacja. Wszystkie prawa zastrzeżone.</p>
         </div>
     </footer>
 

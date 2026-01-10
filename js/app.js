@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function initApp() {
     setupEventListeners();
+    setupCatalogFilters();
     checkAuth(); // Initial check
     await loadCars();
 }
@@ -34,7 +35,7 @@ function renderCars(carsToRender) {
     carList.innerHTML = '';
 
     if (carsToRender.length === 0) {
-        carList.innerHTML = '<p>Brak samochodów spełniających kryteria.</p>';
+        carList.innerHTML = '<div class="no-results"><p>Brak samochodów spełniających kryteria.</p></div>';
         return;
     }
 
@@ -43,6 +44,62 @@ function renderCars(carsToRender) {
         card.carData = car;
         carList.appendChild(card);
     });
+}
+
+function setupCatalogFilters() {
+    const searchInput = document.getElementById('searchInput');
+    const typeFilter = document.getElementById('typeFilter');
+    const priceFilter = document.getElementById('priceFilter');
+    const priceValue = document.getElementById('priceValue');
+    const transmissionCheckboxes = document.querySelectorAll('input[name="transmission"]');
+    const resetBtn = document.getElementById('resetFilters');
+
+    const filterCars = () => {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        const selectedType = typeFilter.value;
+        const maxPrice = parseInt(priceFilter.value);
+        const selectedTransmissions = Array.from(transmissionCheckboxes)
+            .filter(cb => cb.checked)
+            .map(cb => cb.value);
+
+        const filtered = allCars.filter(car => {
+            const matchesSearch = car.brand.toLowerCase().includes(searchTerm) ||
+                car.model.toLowerCase().includes(searchTerm);
+            const matchesType = selectedType === 'all' || car.type.toLowerCase() === selectedType.toLowerCase();
+            const matchesPrice = car.price <= maxPrice;
+            const matchesTransmission = selectedTransmissions.includes(car.transmission);
+
+            return matchesSearch && matchesType && matchesPrice && matchesTransmission;
+        });
+
+        renderCars(filtered);
+    };
+
+    // Event Listeners
+    if (searchInput) searchInput.addEventListener('input', filterCars);
+    if (typeFilter) typeFilter.addEventListener('change', filterCars);
+
+    if (priceFilter) {
+        priceFilter.addEventListener('input', () => {
+            priceValue.textContent = `Do ${priceFilter.value} PLN`;
+            filterCars();
+        });
+    }
+
+    transmissionCheckboxes.forEach(cb => {
+        cb.addEventListener('change', filterCars);
+    });
+
+    if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            typeFilter.value = 'all';
+            priceFilter.value = priceFilter.max;
+            priceValue.textContent = `Do ${priceFilter.max} PLN`;
+            transmissionCheckboxes.forEach(cb => cb.checked = true);
+            renderCars(allCars);
+        });
+    }
 }
 
 function setupEventListeners() {
