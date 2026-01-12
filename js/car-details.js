@@ -42,7 +42,16 @@ function renderCarDetails(car) {
     const iconSeats = 'assets/icons/user_icon.svg'; // Might need to ensure this exists or use text
 
     container.innerHTML = `
-        <section class="details-hero" style="background-image: url('${car.image}')">
+        <div id="lightbox" class="lightbox">
+            <span class="lightbox-close">&times;</span>
+            <button class="lightbox-nav prev">&#10094;</button>
+            <button class="lightbox-nav next">&#10095;</button>
+            <div class="lightbox-content">
+                <img id="lightboxImg" src="" alt="Full view">
+            </div>
+        </div>
+
+        <section class="details-hero" style="background-image: url('${car.image}'); cursor: pointer;">
             <div class="container">
                 <div class="hero-info">
                     <span class="hero-label">${car.type} | ${car.seats} osobowy</span>
@@ -69,7 +78,7 @@ function renderCarDetails(car) {
 
                     <div class="hero-price">
                         <div class="price-tag">
-                            Już od <span class="amount">${formatCurrency(car.pricing.month).replace('PLN', 'zł')}</span> / doba
+                            Już od <span class="amount">${formatCurrency(car.pricing.day).replace('PLN', 'zł')}</span> / doba
                         </div>
                         <p style="color: rgba(255,255,255,0.5); margin-bottom: 2rem;">Przy wynajmie długoterminowym</p>
                         <a href="#booking" class="hero-cta">ZAREZERWUJ TERAZ</a>
@@ -109,6 +118,21 @@ function renderCarDetails(car) {
                 <div style="margin-top: 4rem;">
                     <h3>Opis pojazdu</h3>
                     <p class="description-content">${car.description}</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Galeria zdjęć</h2>
+                </div>
+                <div class="gallery-grid">
+                    ${car.images.map((img, index) => `
+                        <div class="gallery-item" data-index="${index}">
+                            <img src="${img}" alt="${car.brand} ${car.model} image ${index + 1}">
+                        </div>
+                    `).join('')}
                 </div>
             </div>
         </section>
@@ -261,6 +285,112 @@ function renderCarDetails(car) {
             form.reset();
         });
     }
+
+    // Gallery interaction
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const heroSection = document.querySelector('.details-hero');
+
+    galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const imgSrc = item.querySelector('img').src;
+            heroSection.style.backgroundImage = `url('${imgSrc}')`;
+
+            // Optional: add active state to thumbnail
+            galleryItems.forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+        });
+    });
+
+    // Lightbox Logic
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const prevBtn = document.querySelector('.lightbox-nav.prev');
+    const nextBtn = document.querySelector('.lightbox-nav.next');
+
+    let currentImgIndex = 0;
+
+    const openLightbox = (index) => {
+        currentImgIndex = index;
+        lightboxImg.src = car.images[currentImgIndex];
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scroll
+    };
+
+    const closeLightbox = () => {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    const showNext = (e) => {
+        e.stopPropagation();
+        currentImgIndex = (currentImgIndex + 1) % car.images.length;
+        lightboxImg.src = car.images[currentImgIndex];
+    };
+
+    const showPrev = (e) => {
+        e.stopPropagation();
+        currentImgIndex = (currentImgIndex - 1 + car.images.length) % car.images.length;
+        lightboxImg.src = car.images[currentImgIndex];
+    };
+
+    // Open when clicking hero
+    heroSection.addEventListener('click', () => {
+        // Find current image in hero background
+        const bg = heroSection.style.backgroundImage;
+        if (!bg) {
+            openLightbox(0);
+            return;
+        }
+
+        // Extract the URL from url("...")
+        let currentUrl = bg.match(/url\(['"]?(.*?)['"]?\)/)[1];
+
+        // Find index of this URL in car.images
+        // We need to handle relative vs absolute paths
+        const index = car.images.findIndex(img => {
+            const absoluteImg = new URL(img, window.location.href).href;
+            const absoluteCurrent = new URL(currentUrl, window.location.href).href;
+            return absoluteImg === absoluteCurrent;
+        });
+
+        openLightbox(index !== -1 ? index : 0);
+    });
+
+    // Open when clicking gallery hints
+    galleryItems.forEach((item, idx) => {
+        // Add a small zoom icon hint
+        const zoomHint = document.createElement('div');
+        zoomHint.className = 'zoom-hint';
+        zoomHint.innerHTML = '🔍';
+        item.appendChild(zoomHint);
+
+        zoomHint.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openLightbox(idx);
+        });
+
+        // Also open on double click of the thumbnail
+        item.addEventListener('dblclick', () => openLightbox(idx));
+    });
+
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox || e.target.classList.contains('lightbox-content')) {
+            closeLightbox();
+        }
+    });
+
+    nextBtn.addEventListener('click', showNext);
+    prevBtn.addEventListener('click', showPrev);
+
+    // Keyboard support
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox || !lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') showNext(e);
+        if (e.key === 'ArrowLeft') showPrev(e);
+    });
 }
 
 function handleFAQ() {

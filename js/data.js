@@ -15,6 +15,13 @@ export const cars = [
         drive: '4x4 (Quattro)',
         seats: 5,
         image: 'assets/cars/audi-rs6/first_image.jpg',
+        images: [
+            'assets/cars/audi-rs6/first_image.jpg',
+            'assets/cars/audi-rs6/second_image.jpg',
+            'assets/cars/audi-rs6/third_image.jpg',
+            'assets/cars/audi-rs6/fourth_image.jpg',
+            'assets/cars/audi-rs6/fifth_image.jpg'
+        ],
         available: true,
         description: 'Audi RS6 C8 to ikona sportowych kombi. Silnik V8 o mocy 710 KM zapewnia niesamowite osiągi, a napęd Quattro gwarantuje pewność prowadzenia w każdych warunkach. Idealny wybór dla osób szukających połączenia luksusu z ekstremalną mocą.',
         pricing: {
@@ -28,18 +35,25 @@ export const cars = [
     {
         id: 2,
         brand: 'PORSCHE',
-        model: '911 Carrera 4 GTS',
+        model: '911 Carrera 4',
         type: 'sport',
         price: 2800,
-        transmission: 'PDK',
+        transmission: 'Automat',
         acceleration: '3,0 s',
         power: '541 KM',
         torque: '610 Nm',
         engine: '3.0 Boxer Turbo',
         fuel: 'Benzyna',
         drive: '4x4',
-        seats: 4,
+        seats: 2,
         image: 'assets/cars/porsche-911/first_image.jpeg',
+        images: [
+            'assets/cars/porsche-911/first_image.jpeg',
+            'assets/cars/porsche-911/second_image.jpeg',
+            'assets/cars/porsche-911/third_image.jpeg',
+            'assets/cars/porsche-911/fourth_image.jpeg',
+            'assets/cars/porsche-911/fifth_image.jpeg'
+        ],
         available: true,
         description: 'Porsche 911 Carrera 4 GTS to definicja samochodu sportowego. Precyzja prowadzenia, błyskawiczna skrzynia PDK i legendarny design sprawiają, że każda minuta za kierownicą to czysta adrenalina.',
         pricing: {
@@ -65,6 +79,13 @@ export const cars = [
         drive: 'xDrive',
         seats: 5,
         image: 'assets/cars/bmw-m3/first_image.jpg',
+        images: [
+            'assets/cars/bmw-m3/first_image.jpg',
+            'assets/cars/bmw-m3/second_image.jpg',
+            'assets/cars/bmw-m3/third_image.jpg',
+            'assets/cars/bmw-m3/fourth_image.jpg',
+            'assets/cars/bmw-m3/fifth_image.jpg'
+        ],
         available: true,
         description: 'BMW M3 Competition z napędem xDrive to maszyna stworzona do dawania radości z jazdy. Agresywna stylistyka i niesamowita elastyczność silnika R6 tworzą duet idealny.',
         pricing: {
@@ -90,6 +111,13 @@ export const cars = [
         drive: 'RWD',
         seats: 4,
         image: 'assets/cars/ford-mustang-gt/first_image.jpg',
+        images: [
+            'assets/cars/ford-mustang-gt/first_image.jpg',
+            'assets/cars/ford-mustang-gt/second_image.jpg',
+            'assets/cars/ford-mustang-gt/third_image.jpg',
+            'assets/cars/ford-mustang-gt/fourth_image.jpg',
+            'assets/cars/ford-mustang-gt/fifth_image.jpg'
+        ],
         available: true,
         description: 'Amerykańska legenda w najnowszym wydaniu. Mustang z silnikiem V8 to nie tylko dźwięk, to styl życia. Poczuj wolność na każdej trasie.',
         pricing: {
@@ -115,6 +143,13 @@ export const cars = [
         drive: '4Matic',
         seats: 5,
         image: 'assets/cars/mercedes-g63amg/first_image.webp',
+        images: [
+            'assets/cars/mercedes-g63amg/first_image.webp',
+            'assets/cars/mercedes-g63amg/second_image.avif',
+            'assets/cars/mercedes-g63amg/third_image.avif',
+            'assets/cars/mercedes-g63amg/fouth_image.avif',
+            'assets/cars/mercedes-g63amg/fifth_image.avif'
+        ],
         available: true,
         description: 'Mercedes-Benz Klasa G 63 AMG to potęga i prestiż w jednym. Niezrównane możliwości terenowe połączone z luksusowym wykończeniem wnętrza.',
         pricing: {
@@ -140,6 +175,13 @@ export const cars = [
         drive: 'Quattro',
         seats: 5,
         image: 'assets/cars/audi-s3/first_image.jpg',
+        images: [
+            'assets/cars/audi-s3/first_image.jpg',
+            'assets/cars/audi-s3/second_image.jpg',
+            'assets/cars/audi-s3/third_image.jpg',
+            'assets/cars/audi-s3/fourth_image.jpg',
+            'assets/cars/audi-s3/fifth_image.jpg'
+        ],
         available: true,
         description: 'Audi S3 to idealny "daily driver" o sportowym zacięciu. Kompaktowe wymiary, napęd na cztery koła i świetna dynamika czynią go królem miejskiej dżungli.',
         pricing: {

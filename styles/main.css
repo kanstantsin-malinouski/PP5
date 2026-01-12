@@ -1,12 +1,8 @@
 :root {
-    /* Colors */
     --primary-color: #1E3A8A;
-    /* Deep Royal Blue */
     --primary-hover: #172554;
     --secondary-color: #0F172A;
-    /* Dark Slate */
     --accent-color: #F97316;
-    /* Vibrant Orange */
     --danger-color: #EF4444;
     --success-color: #10B981;
 
@@ -16,19 +12,16 @@
     --white: #FFFFFF;
     --border-color: #E5E7EB;
 
-    /* Spacing */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
     --spacing-lg: 2rem;
     --spacing-xl: 4rem;
 
-    /* Border Radius */
     --radius-sm: 4px;
     --radius-md: 8px;
     --radius-lg: 12px;
 
-    /* Shadows */
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -52,7 +45,6 @@ body {
     background-color: var(--bg-color);
     line-height: 1.5;
 
-    /* Sticky Footer */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
