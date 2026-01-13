@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zaloguj się - oRENTacja</title>
+    <title>Zarejestruj się - oRENTacja</title>
     <link rel="icon" type="image/png" href="assets/logo.png">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/layout.css">
@@ -25,26 +25,56 @@
     <main class="login-wrapper">
         <div class="login-container">
             <div class="login-header">
-                <h2>Witaj ponownie</h2>
-                <p>Zaloguj się, aby zarządzać rezerwacjami.</p>
+                <h2>Dołącz do nas</h2>
+                <p>Stwórz konto i zacznij wynajmować luksusowe auta.</p>
             </div>
             
-            <form id="loginPageForm">
-                <div id="loginError" class="error-msg hidden">
-                    Błędny e-mail lub hasło.
+            <form id="registerPageForm">
+                <div id="registerError" class="error-msg hidden">
+                    Wystąpił błąd podczas rejestracji.
                 </div>
+                <div id="registerSuccess" class="success-msg hidden">
+                    Konto zostało utworzone! Przekierowywanie...
+                </div>
+                
+                <div class="form-group">
+                    <label for="fullName">Imię i nazwisko</label>
+                    <input type="text" id="fullName" required placeholder="np. Jan Kowalski" minlength="3">
+                </div>
+                
                 <div class="form-group">
                     <label for="email">E-mail</label>
                     <input type="email" id="email" required placeholder="np. jan@example.com">
                 </div>
+                
+                <div class="form-group">
+                    <label for="phone">Numer telefonu</label>
+                    <input type="tel" id="phone" required placeholder="+48 123 456 789" pattern="[+]?[0-9\s]{9,15}">
+                </div>
+                
                 <div class="form-group">
                     <label for="password">Hasło</label>
-                    <input type="password" id="password" required placeholder="••••••••">
+                    <input type="password" id="password" required placeholder="••••••••" minlength="6">
+                    <small style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-top: 0.25rem; display: block;">Minimum 6 znaków</small>
                 </div>
-                <button type="submit" class="btn btn-primary full-width">Zaloguj się</button>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">Potwierdź hasło</label>
+                    <input type="password" id="confirmPassword" required placeholder="••••••••" minlength="6">
+                </div>
+                
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                        <input type="checkbox" id="terms" required style="width: auto; margin: 0;">
+                        <span style="font-size: 0.9rem;">Akceptuję <a href="#" style="color: var(--primary-color); text-decoration: underline;">regulamin</a> i <a href="#" style="color: var(--primary-color); text-decoration: underline;">politykę prywatności</a></span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary full-width">Zarejestruj się</button>
             </form>
+            
             <div class="login-footer">
-                <p>Nie masz konta? <a href="register.html">Zarejestruj się</a></p>
+                <p>Masz już konto? <a href="login.html">Zaloguj się</a></p>
                 <p><a href="index.html">Powrót do strony głównej</a></p>
             </div>
         </div>
