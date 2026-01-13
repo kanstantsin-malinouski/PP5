@@ -286,6 +286,14 @@ function renderCarDetails(car) {
         });
     }
 
+    // Fix: Prevent hero lightbox from opening when clicking CTA
+    const ctaBtn = document.querySelector('.hero-cta');
+    if (ctaBtn) {
+        ctaBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
+
     // Gallery interaction
     const galleryItems = document.querySelectorAll('.gallery-item');
     const heroSection = document.querySelector('.details-hero');
