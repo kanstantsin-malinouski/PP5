@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 async function initApp() {
     setupEventListeners();
     setupCatalogFilters();
-    checkAuth(); // Initial check
+    checkAuth(); 
     await loadCars();
 }
 
@@ -75,7 +75,6 @@ function setupCatalogFilters() {
         renderCars(filtered);
     };
 
-    // Event Listeners
     if (searchInput) searchInput.addEventListener('input', filterCars);
     if (typeFilter) typeFilter.addEventListener('change', filterCars);
 
@@ -111,7 +110,7 @@ function setupEventListeners() {
     if (menuToggle && mainNav) {
         menuToggle.addEventListener('click', () => {
             mainNav.classList.toggle('active');
-            menuToggle.classList.toggle('active'); // Animate hamburger
+            menuToggle.classList.toggle('active');
         });
 
         if (closeMenuBtn) {
@@ -132,6 +131,7 @@ function setupEventListeners() {
     handleFAQ();
 }
 
+// FAQ functionality
 function handleFAQ() {
     const faqQuestions = document.querySelectorAll('.faq-question');
     faqQuestions.forEach(question => {

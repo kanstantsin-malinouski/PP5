@@ -6,12 +6,11 @@ class CarCard extends HTMLElement {
         super();
     }
 
-    connectedCallback() {
-        // We expect data to be passed via a property
+    connectedCallback() { // moment podpiecia do DOM
         this.render();
     }
 
-    set carData(data) {
+    set carData(data) { // ustawienie danych
         this._car = data;
         this.render();
     }

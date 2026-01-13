@@ -1,4 +1,3 @@
-// Auth Service
 
 // Initialize users storage if not exists
 function initializeUsers() {
@@ -35,7 +34,7 @@ export function register(userData) {
         fullName: userData.fullName,
         email: userData.email,
         phone: userData.phone,
-        password: userData.password, // In production, this should be hashed
+        password: userData.password, 
         role: 'user',
         createdAt: new Date().toISOString()
     };
@@ -52,7 +51,6 @@ export function checkAuth() {
     const userInfo = document.getElementById('userInfo');
     const userNameDisplay = document.getElementById('userName');
 
-    // If elements don't exist (e.g. on login page), return
     if (!loginLink || !userInfo) return;
 
     if (userRole) {
@@ -79,7 +77,7 @@ export function checkAuth() {
 export function login(email, password) {
     initializeUsers();
 
-    // Check hardcoded admin account
+    // admin account
     const adminEmail = 'admin@example.com';
     const adminPass = 'admin123';
 
@@ -115,7 +113,6 @@ export function logout() {
     window.location.reload();
 }
 
-// Initialize Login Page Logic
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginPageForm');
     const errorMsg = document.getElementById('loginError');
@@ -136,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Initialize Registration Page Logic
+    // Registration Page Logic
     const registerForm = document.getElementById('registerPageForm');
     const registerError = document.getElementById('registerError');
     const registerSuccess = document.getElementById('registerSuccess');
@@ -145,11 +142,9 @@ document.addEventListener('DOMContentLoaded', () => {
         registerForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            // Hide previous messages
             if (registerError) registerError.classList.add('hidden');
             if (registerSuccess) registerSuccess.classList.add('hidden');
 
-            // Get form values
             const fullName = document.getElementById('fullName').value.trim();
             const email = document.getElementById('email').value.trim();
             const phone = document.getElementById('phone').value.trim();
@@ -210,6 +205,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Check auth status on load
     checkAuth();
 });

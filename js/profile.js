@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Role specific UI adjustments
     if (userRole === 'admin') {
         document.body.classList.add('is-admin');
         const sidebarUserRole = document.getElementById('sidebarUserRole');
@@ -43,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navItems.forEach(item => {
         item.addEventListener('click', () => {
             const tab = item.getAttribute('data-tab');
-            if (!tab) return; // Skip buttons without data-tab like Logout
+            if (!tab) return; 
 
             navItems.forEach(i => i.classList.remove('active'));
             tabPanes.forEach(p => p.classList.remove('active'));
@@ -60,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
         sidebarLogoutBtn.addEventListener('click', logout);
     }
 
-    // Load Data
     loadReservations(userRole);
     if (userRole === 'admin') {
         loadUsers();
@@ -68,13 +66,11 @@ document.addEventListener('DOMContentLoaded', () => {
         loadPayments();
     }
 
-    // Initialize Logout (Header)
     const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn) {
         logoutBtn.addEventListener('click', logout);
     }
 
-    // Modal close
     document.getElementById('closeModal')?.addEventListener('click', () => {
         document.getElementById('editModal').classList.add('hidden');
     });

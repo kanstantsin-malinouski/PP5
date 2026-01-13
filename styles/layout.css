@@ -40,7 +40,6 @@
 
 .logo .highlight {
     color: var(--accent-color);
-    /* RENT in Orange/Accent */
 }
 
 .nav-list {
@@ -50,7 +49,6 @@
 
 .close-menu-btn {
     display: none;
-    /* Hidden on desktop */
 }
 
 .nav-list a {
@@ -73,16 +71,11 @@
     padding: 0.6rem 1.25rem;
 }
 
-/* Mobile Menu Toggle */
-/* Mobile Menu Toggle */
-/* Mobile Menu Toggle */
 .menu-toggle {
     display: none;
     flex-direction: column;
     justify-content: center;
-    /* Center content vertically */
     align-items: center;
-    /* Center content horizontally */
     width: 30px;
     height: 30px;
     background: none;
@@ -91,7 +84,6 @@
     z-index: 200;
     padding: 0;
     align-self: center;
-    /* Center button relative to header */
 }
 
 .hamburger {
@@ -123,7 +115,6 @@
     top: 8px;
 }
 
-/* Active State for Hamburger (Transform to X) */
 .menu-toggle.active .hamburger {
     background: transparent;
 }
@@ -138,14 +129,12 @@
     transform: rotate(-45deg);
 }
 
-/* Utility for Mobile items - FORCE HIDDEN on Desktop */
 .mobile-only {
     display: none !important;
 }
 
 @media (max-width: 768px) {
 
-    /* Logo Resize */
     .logo {
         font-size: 1.8rem;
     }
@@ -165,16 +154,13 @@
     .main-nav {
         position: absolute;
         top: 100%;
-        /* Below header */
         left: 0;
         width: 100%;
         height: auto;
         background: #f8f9fa;
-        /* Light grey background like reference */
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         padding: 0;
 
-        /* Animation: Slide Down */
         max-height: 0;
         overflow: hidden;
         opacity: 0;
@@ -182,24 +168,20 @@
 
         border-top: 1px solid var(--border-color);
         display: block;
-        /* Override flex */
     }
 
     .main-nav.active {
         max-height: 500px;
-        /* Large enough to fit content */
         opacity: 1;
         padding: var(--spacing-lg) 0;
     }
 
-    /* Hide the close button as hamburger handles it */
     .close-menu-btn {
         display: none !important;
     }
 
     .main-nav.active {
         right: 0;
-        /* Slide in */
     }
 
     .nav-list {
@@ -211,13 +193,10 @@
 
     .user-actions {
         display: none !important;
-        /* Hidden on mobile as requested */
     }
 }
 
-/* Removed .user-actions styles from here as they were moved up */
 
-/* User Info Panel */
 .user-info {
     display: flex;
     align-items: center;
@@ -229,18 +208,12 @@
     font-weight: 600;
 }
 
-/* Hero Section */
 .hero-section {
     background-color: #D35400;
-    /* Terracotta Orange */
     color: var(--white);
     padding: var(--spacing-lg) 0;
-    /* Reduced from xl to lg */
     text-align: left;
-    /* Changed from center */
-    /* Removed background-image */
     overflow: hidden;
-    /* For the car image */
 }
 
 .hero-content {
@@ -249,7 +222,6 @@
     justify-content: space-between;
     gap: var(--spacing-lg);
     min-height: 400px;
-    /* Enforce a reasonable minimum height */
 }
 
 .hero-text {
@@ -282,11 +254,9 @@
 
 .hero-car-img {
     max-width: 120%;
-    /* Make it pop out a bit */
     height: auto;
     filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.3));
     transform: rotate(-2deg);
-    /* Dynamic angle */
 }
 
 @media (max-width: 768px) {
@@ -295,31 +265,25 @@
         text-align: center;
         gap: var(--spacing-md);
         min-height: auto;
-        /* Allow auto height on mobile */
     }
 
     .hero-section {
         background-color: #D35400;
-        /* Ensure solid color persists */
         background-image: none;
-        /* Explicitly remove any background image */
         padding: var(--spacing-lg) 0;
     }
 
     .hero-section h1 {
         font-size: 2.5rem;
-        /* Smaller font for mobile */
     }
 
     .hero-car-img {
         max-width: 100%;
         margin-top: var(--spacing-sm);
         transform: rotate(0deg);
-        /* Simplify transform for mobile */
     }
 }
 
-/* Catalog Layout */
 .catalog-section {
     padding: var(--spacing-xl) 0;
 }
@@ -331,10 +295,8 @@
     text-align: center;
     margin-bottom: var(--spacing-lg);
     gap: var(--spacing-sm);
-    /* Removed position: relative */
 }
 
-/* Removed catalog-header-content styles as the div was removed */
 
 .section-description {
     max-width: 100%;
@@ -347,7 +309,6 @@
 .search-bar {
     width: 300px;
     align-self: flex-end;
-    /* Pushes to the right */
     margin-top: var(--spacing-sm);
 }
 
@@ -355,7 +316,6 @@
     .search-bar {
         width: 100%;
         align-self: center;
-        /* Center on mobile */
     }
 }
 
@@ -371,7 +331,6 @@
     }
 }
 
-/* Sidebar Filters Refinement */
 .filters-sidebar {
     background: #fdfdfd;
     padding: var(--spacing-lg);
@@ -433,7 +392,6 @@
     color: var(--primary-color);
 }
 
-/* Range Input Styling */
 input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
@@ -459,7 +417,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
     transform: scale(1.1);
 }
 
-/* Custom Checkboxes */
 .checkbox-container {
     display: block;
     position: relative;
@@ -480,7 +437,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
     appearance: none;
 }
 
-/* Info Content Section (Dedicars Style) */
 .info-content-section {
     padding: var(--spacing-xl) 0;
 }
@@ -519,7 +475,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
     margin-bottom: 0;
 }
 
-/* FAQ Section */
 .faq-section {
     background-color: #f9f9f9;
     padding: var(--spacing-xl) 0;
@@ -580,7 +535,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
 
 .faq-item.active .faq-answer {
     max-height: 500px;
-    /* arbitrary large value */
 }
 
 .faq-item.active .faq-icon {
@@ -628,14 +582,12 @@ input[type="range"]::-webkit-slider-thumb:hover {
     transform: rotate(45deg);
 }
 
-/* Car Grid */
 .car-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: var(--spacing-lg);
 }
 
-/* Footer */
 .main-footer {
     background-color: var(--secondary-color);
     color: var(--text-light);

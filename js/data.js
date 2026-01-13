@@ -191,14 +191,109 @@ export const cars = [
             month: 8000,
             deposit: 2000
         }
+    },
+    {
+        id: 7,
+        brand: 'Mazda',
+        model: 'MX-5 Miata',
+        type: 'sport',
+        price: 399,
+        transmission: 'Manual',
+        acceleration: '6,5 s',
+        power: '184 KM',
+        torque: '205 Nm',
+        engine: '2.0 SkyActiv-G',
+        fuel: 'Benzyna',
+        drive: 'RWD',
+        seats: 2,
+        image: 'assets/cars/mazda-mx5-miata/first_image.avif',
+        images: [
+            'assets/cars/mazda-mx5-miata/first_image.avif',
+            'assets/cars/mazda-mx5-miata/second_image.avif',
+            'assets/cars/mazda-mx5-miata/third_image.avif',
+            'assets/cars/mazda-mx5-miata/fourth_image.avif',
+            'assets/cars/mazda-mx5-miata/fifth_image.avif'
+        ],
+        available: true,
+        description: 'Mazda MX-5 to kwintesencja czystej radości z jazdy. Lekki roadster z manualną skrzynią biegów pozwala poczuć prawdziwą więź z drogą. Idealna na weekendowe wypady.',
+        pricing: {
+            day: 399,
+            day3: 1100,
+            week: 2000,
+            month: 5500,
+            deposit: 1500
+        }
+    },
+    {
+        id: 8,
+        brand: 'Honda',
+        model: 'Civic Type R',
+        type: 'sport',
+        price: 699,
+        transmission: 'Manual',
+        acceleration: '5,7 s',
+        power: '320 KM',
+        torque: '420 Nm',
+        engine: '2.0 VTEC Turbo',
+        fuel: 'Benzyna',
+        drive: 'FWD',
+        seats: 5,
+        image: 'assets/cars/honda-civic/first_image.avif',
+        images: [
+            'assets/cars/honda-civic/first_image.avif',
+            'assets/cars/honda-civic/second_image.avif',
+            'assets/cars/honda-civic/third_image.avif',
+            'assets/cars/honda-civic/fourth_image.avif',
+            'assets/cars/honda-civic/fifth_image.avif'
+        ],
+        available: true,
+        description: 'Honda Civic Type R to hot hatch w najczystszej formie. Manualna skrzynia 6-biegowa, agresywny design i precyzyjne prowadzenie sprawiają, że to auto dla prawdziwych entuzjastów.',
+        pricing: {
+            day: 699,
+            day3: 1900,
+            week: 3600,
+            month: 9500,
+            deposit: 2500
+        }
+    },
+    {
+        id: 9,
+        brand: 'Toyota',
+        model: 'GR86',
+        type: 'sport',
+        price: 499,
+        transmission: 'Manual',
+        acceleration: '6,3 s',
+        power: '234 KM',
+        torque: '250 Nm',
+        engine: '2.4 Boxer',
+        fuel: 'Benzyna',
+        drive: 'RWD',
+        seats: 4,
+        image: 'assets/cars/gr86/first_image.avif',
+        images: [
+            'assets/cars/gr86/first_image.avif',
+            'assets/cars/gr86/second_image.avif',
+            'assets/cars/gr86/third_image.avif',
+            'assets/cars/gr86/fourth_image.avif',
+            'assets/cars/gr86/fifth_image.avif'
+        ],
+        available: true,
+        description: 'Toyota GR86 to nowoczesna interpretacja klasycznego sportowego coupe. Nisko osadzony silnik boxer, napęd na tył i manualna skrzynia to recepta na doskonałą zabawę na krętych drogach.',
+        pricing: {
+            day: 499,
+            day3: 1350,
+            week: 2500,
+            month: 6800,
+            deposit: 2000
+        }
     }
 ];
 
 export function getCars() {
-    // Simulating async fetch
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(cars);
-        }, 500); // 0.5s delay
+        }, 500);
     });
 }

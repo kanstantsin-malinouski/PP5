@@ -1,4 +1,3 @@
-/* Buttons */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -57,7 +56,6 @@
     width: 100%;
 }
 
-/* Form Elements */
 input[type="text"],
 input[type="search"],
 select {
@@ -85,7 +83,6 @@ input[type="range"] {
     gap: 0.5rem;
 }
 
-/* Modal */
 .modal {
     position: fixed;
     top: 0;
@@ -127,14 +124,10 @@ input[type="range"] {
     margin-bottom: var(--spacing-md);
 }
 
-/* Car Card New Styles */
 .car-card {
     background: #f2f2f2;
-    /* Light grey per request */
-    /* Very light gray/white */
     border-radius: var(--radius-lg);
     border: 1px solid rgba(0, 0, 0, 0.1);
-    /* Light dark border */
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s;
@@ -162,7 +155,6 @@ input[type="range"] {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Center everything column-wise */
 }
 
 .car-title {
@@ -181,11 +173,8 @@ input[type="range"] {
 .price-main {
     font-family: 'Montserrat', sans-serif;
     font-size: 22px;
-    /* Increased to 22px */
     font-weight: 700;
-    /* Reverted to 700 */
     color: #1ba300;
-    /* Distinct Green */
     line-height: 1.2;
     margin-bottom: 0.25rem;
 }
@@ -213,7 +202,6 @@ input[type="range"] {
     font-size: 0.9rem;
     color: #555;
     justify-content: flex-start;
-    /* Left align content in cell */
 }
 
 .icon-wrap {
@@ -230,19 +218,16 @@ input[type="range"] {
     height: 100%;
     object-fit: contain;
     filter: invert(0.8);
-    /* Invert light grey to make it dark grey */
 }
 
 .car-footer-action {
     width: 60%;
-    /* Not full width button, maybe 60-80% */
     margin-top: auto;
 }
 
 .btn-pill {
     border-radius: 50px;
     background-color: #e6a33a;
-    /* Muted orange/gold */
     font-weight: 700;
     text-transform: none;
     font-size: 1.1rem;
@@ -257,7 +242,6 @@ input[type="range"] {
     text-align: center;
 }
 
-/* Login Page Styles */
 .login-wrapper {
     min-height: calc(100vh - 200px);
     display: flex;

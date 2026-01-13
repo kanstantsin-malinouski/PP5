@@ -1,5 +1,3 @@
-/* Premium Footer Styles - Inspired by Dedicars.pl */
-
 .premium-footer {
     background-color: #1a1a1a;
     color: #e6e6e6;
@@ -63,7 +61,6 @@
     color: #cccccc;
 }
 
-/* Social Icons */
 .social-links {
     display: flex;
     gap: 12px;
@@ -94,7 +91,6 @@
     fill: currentColor;
 }
 
-/* Link Lists */
 .footer-links-list {
     list-style: none;
     padding: 0;
@@ -115,7 +111,6 @@
     color: var(--primary-color);
 }
 
-/* Contact Info */
 .footer-contact-item {
     display: flex;
     gap: 15px;
@@ -146,7 +141,6 @@
     color: #ffffff;
 }
 
-/* Footer Bottom */
 .footer-bottom-bar {
     padding-top: 30px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -177,7 +171,6 @@
     color: white;
 }
 
-/* Responsive */
 @media (max-width: 992px) {
     .footer-main-grid {
         grid-template-columns: 1fr 1fr;

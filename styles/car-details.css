@@ -1,10 +1,8 @@
-/* Car Details Page Styles */
 .car-details-page {
     background-color: #0c0c0c;
     color: #ffffff;
 }
 
-/* Hero Section */
 .details-hero {
     position: relative;
     height: 90vh;
@@ -94,7 +92,6 @@
     color: var(--primary-color);
 }
 
-/* Section Transitions */
 .details-section {
     padding: 100px 0;
 }
@@ -103,7 +100,6 @@
     background-color: #111111;
 }
 
-/* Specs Grid */
 .specs-detail-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -144,7 +140,6 @@
     font-weight: 700;
 }
 
-/* Pricing Table */
 .pricing-container {
     background: #1a1a1a;
     border-radius: 30px;
@@ -189,7 +184,6 @@
     display: block;
 }
 
-/* Description */
 .description-content {
     font-size: 1.1rem;
     line-height: 1.8;
@@ -197,7 +191,6 @@
     max-width: 800px;
 }
 
-/* Booking Sidebar / Bottom Section */
 .booking-section {
     background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
     padding: 80px 0;
@@ -303,7 +296,6 @@
     }
 }
 
-/* Gallery Section */
 .gallery-section {
     padding: 80px 0;
     background-color: #0c0c0c;
@@ -353,7 +345,6 @@
     transition: background-image 0.5s ease-in-out;
 }
 
-/* Lightbox Styles */
 .lightbox {
     position: fixed;
     inset: 0;
@@ -449,7 +440,6 @@
     right: 40px;
 }
 
-/* Zoom Hint on Thumbnails */
 .zoom-hint {
     position: absolute;
     top: 10px;
